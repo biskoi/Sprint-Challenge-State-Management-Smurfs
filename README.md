@@ -23,10 +23,31 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+  The context API helps us avoid prop drilling in large, complex applications by providing a globally accessible context/store that apps wrapped in it can access.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  Actions are events that happen in the UI that causes a change in the state
+  A reducer is a function that holds your state, and performs actions on it depending on the case to return a new state object.
+  The store is a globally accessible object that allows connected components to use and perform actions on the state.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  Application state (stores) is the global level state of the application, containing everything inside the app.
+  Component state is state that is only managed in the component level, such as a form's data.
+  The application wouldn't really need the form's data state as data is being inputted, so we use component level state. 
+  Once the data has been submitted, however, it will most likely become a part of the application state.
+  A good time to use App state over Component state is when a ton of components need that state.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+  Thunk allows us to use async functions inside redux, which is usually synchronous. This lets us handle promises, and make API calls for data that we can use to set state.
+  As middleware, it goes between the app and the reducer. It allows us to return a function first and then a dispatch, thanks to function currying.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+  Redux is my favourite state management system. It allows me to hold state in one place, and also keep all of my state logic together thanks to case switching. I don't need to pass props down either, and can mSTP them according to what I need in each component.
 
 ## Project Set Up
 
